@@ -21,7 +21,7 @@ picker.directive 'dateRangePicker', ($compile, $timeout, $parse, dateRangePicker
     # angular.merge removes prototypes...
     _mergeOpts = () ->
       localeExtend = angular.extend.apply(angular,
-        Array.prototype.slice.call(arguments).map((opt) -> opt?.locale).filter((opt) -> !!opt))
+        Array.prototype.slice.call(arguments).unshift({}).map((opt) -> opt?.locale).filter((opt) -> !!opt))
       extend = angular.extend.apply(angular, arguments)
       extend.locale = localeExtend
       extend
